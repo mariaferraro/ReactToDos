@@ -1,0 +1,23 @@
+#root {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: 'Oxygen', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(at 18% 99%, rgb(255, 255, 255) 0px, transparent 50%) repeat scroll 0% 0%, 
+              radial-gradient(at 97% 8%, rgb(255, 255, 255) 0px, transparent 50%) repeat scroll 0% 0%, 
+              radial-gradient(at 79% 82%, rgb(161, 241, 243) 0px, transparent 50%) repeat scroll 0% 0%,
+              radial-gradient(at 96% 10%, rgb(245, 120, 218) 0px, transparent 50%) repeat scroll 0% 0%,    
+              radial-gradient(at 42% 20%, rgb(73, 223, 228) 0px, transparent 50%) repeat scroll 0% 0%,
+              radial-gradient(at 4% 49%, rgb(218, 88, 181) 0px, transparent 50%) repeat scroll 0% 0%, rgba(0, 0, 0, 0) radial-gradient(at 57% 33%, rgb(218, 83, 228) 0px, #a299ff 50%) repeat scroll 0% 0%;
+  font-family: 'Oxygen', sans-serif;
+}

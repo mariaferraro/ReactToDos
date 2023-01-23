@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+    font-size: 3rem;
+    color: #ffffff;
+    font-weight: 900;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+h2{
+    text-align: center;
+    color: rgb(243, 243, 243);
+    font-size: 1.2rem;
+    margin-top: 0;
+}
