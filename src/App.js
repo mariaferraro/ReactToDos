@@ -16,18 +16,28 @@ import { CreateTodoButton } from './components/CreateTodoButton.js';
 
 function App() {
 
-  // Initial States
-  const [todos, setTodos] = React.useState(defaultTodos);
+  //--- Saving To-Dos on Local Storage ---//
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  let parsedTodos;
+
+  if(!localStorageTodos){
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+  }else{
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+  //--- Initial States ---//
+  const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
-  // Counting completed and total todos for Heading 2
+  //--- Counting completed and total todos for Heading 2 ---//
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
 
-  // Var to save search results
+  //--- Var to save search results ---//
   let searchedTodos = [];
 
-  // Filtering results
+  //--- Filtering results ---//
   if (!searchValue.length >= 1){
     searchedTodos = todos;
   }else{
@@ -37,6 +47,30 @@ function App() {
       const searchText = searchValue.toLowerCase();
       return todoText.includes(searchText);
     });
+  }
+
+  //--- Save todos into Local Storage ---//
+  const saveTodos = (newTodos) => {
+    const stringifiedTodos = JSON.stringify(newTodos);
+    localStorage.setItem('TODOS_V1', stringifiedTodos);
+    setTodos(newTodos);
+  }
+
+
+  //--- Mark To-Do as completed or uncompleted ---//
+  const toggleCompleteTodos = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+    saveTodos(newTodos);
+  }
+
+  //--- Delete To-Dos ---//
+  const deleteTodos = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);
+    saveTodos(newTodos);
   }
 
   return (
@@ -58,6 +92,8 @@ function App() {
           key={todo.text} 
           text={todo.text} 
           completed={todo.completed}
+          onComplete={() => toggleCompleteTodos(todo.text)}
+          onDelete={() => deleteTodos(todo.text)}
         />
       ))}
     </TodoList> 

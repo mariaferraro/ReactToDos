@@ -1,6 +1,6 @@
 section.todo-list{
   margin: 30px auto;
-  padding: 30px;
+  padding: 30px 30px 6px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
