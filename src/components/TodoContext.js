@@ -18,6 +18,7 @@ const {
 
   //--- Initial State ---//
   const [searchValue, setSearchValue] = React.useState('');
+  const [openModal, setOpenModal] = React.useState(false);
 
   //--- Counting completed and total todos for Heading 2 ---//
   const completedTodos = todos.filter(todo => todo.completed).length;
@@ -63,7 +64,9 @@ const {
             setSearchValue,
             searchedTodos,
             toggleCompleteTodos,
-            deleteTodos
+            deleteTodos,
+            openModal,
+            setOpenModal,
         }}>
             {props.children}
         </TodoContext.Provider>

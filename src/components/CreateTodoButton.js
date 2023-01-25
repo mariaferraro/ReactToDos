@@ -3,15 +3,21 @@ import '../styles/CreateTodoButton.css';
 
 function CreateTodoButton(props){
 
-    const onClickButton = (msg) => {
-        alert(msg);
-    } 
+    const [isRotated, setIsRotated] = React.useState(false);
+
+    const onClickButton = () => {
+         props.setOpenModal(!props.openModal);
+          setIsRotated(!isRotated)    
+    };
 
     return(
-        <button className="CreateTodoButton" onClick={() => onClickButton('Alerta')}>
+        <button 
+            className={`CreateTodoButton ${isRotated ? 'rotated' : ''}`}
+            onClick={onClickButton}
+        >
             +
         </button>
     );
 }
 
-export {CreateTodoButton};
+export { CreateTodoButton };
