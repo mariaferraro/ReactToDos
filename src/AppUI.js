@@ -11,6 +11,13 @@ import { TodoForm } from './components/TodoForm.js'
 //--- Calling the Provider ---//
 import { TodoContext } from './components/TodoContext.js';
 
+//--- Calling the Error, Loading and Empty ---//
+import { TodosError } from './components/TodosError.js';
+import { TodosLoading } from './components/TodosLoading.js';
+import { EmptyTodos } from './components/EmptyTodos.js';
+
+
+
 function AppUI() {
 
      //--- Calling the Provider ---//
@@ -32,9 +39,9 @@ function AppUI() {
       <TodoSearch />
 
           <TodoList>
-            {error && <p>There was an error...</p>}
-            {loading && <p>Loading...</p>}
-            {(!loading && !searchedTodos.length) && <p>Ready to create your first To-Do!</p>}
+            {error && <TodosError error={error} />}
+            {loading && <TodosLoading />}
+            {(!loading && !searchedTodos.length) && <EmptyTodos />}
 
             {searchedTodos.map( todo => (
               <TodoItem 
