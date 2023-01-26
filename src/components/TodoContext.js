@@ -39,6 +39,16 @@ const {
     });
   }
 
+  //--- Adding new To-Do to the list ---//
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      completed: false,
+      text,
+    });
+    saveTodos(newTodos);
+  }
+
   //--- Mark To-Do as completed or uncompleted ---//
   const toggleCompleteTodos = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
@@ -63,6 +73,7 @@ const {
             searchValue,
             setSearchValue,
             searchedTodos,
+            addTodo,
             toggleCompleteTodos,
             deleteTodos,
             openModal,

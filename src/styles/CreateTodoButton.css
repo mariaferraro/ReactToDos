@@ -23,7 +23,3 @@
 .CreateTodoButton.rotated{
   transform: rotate(224deg);
 }
-
-.CreateTodoButton:hover {
-  transform: rotate(224deg);
-}

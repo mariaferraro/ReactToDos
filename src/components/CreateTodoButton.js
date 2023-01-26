@@ -6,7 +6,7 @@ function CreateTodoButton(props){
     const [isRotated, setIsRotated] = React.useState(false);
 
     const onClickButton = () => {
-         props.setOpenModal(!props.openModal);
+         props.setOpenModal(prevState => !prevState);
           setIsRotated(!isRotated)    
     };
 

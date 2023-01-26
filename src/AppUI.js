@@ -6,6 +6,7 @@ import { TodoList } from './components/TodoList.js';
 import { TodoItem } from './components/TodoItem.js';
 import { CreateTodoButton } from './components/CreateTodoButton.js';
 import { Modal } from './components/Modal.js'
+import { TodoForm } from './components/TodoForm.js'
 
 //--- Calling the Provider ---//
 import { TodoContext } from './components/TodoContext.js';
@@ -48,7 +49,7 @@ function AppUI() {
 
         {openModal && (
           <Modal>
-            <p>Hola</p>
+            <TodoForm />
           </Modal>
         )}
 
